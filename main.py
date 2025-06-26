@@ -9,14 +9,21 @@ import tempfile
 
 url = "https://modelstorages.blob.core.windows.net/models/saved_model_keras_larger.keras?sp=r&st=2025-06-26T13:41:30Z&se=2026-02-28T22:41:30Z&spr=https&sv=2024-11-04&sr=b&sig=MkehvHbN%2B1H94JdLgsRfZmR8LicBwBM9ban4g%2B9kPg8%3D"
 
+
 def load_model_from_blob(url):
     response = requests.get(url)
-    response.raise_for_status()
-    with tempfile.NamedTemporaryFile(suffix=".keras") as tmp:
-        tmp.write(response.content)
-        tmp.flush()
-        model = tf.keras.models.load_model(tmp.name)
+    if response.status_code != 200:
+        raise Exception(
+            f"Erreur de téléchargement du modèle : {response.status_code}")
+
+    # Créer un fichier temporaire qui ne sera pas supprimé automatiquement
+    tmp = tempfile.NamedTemporaryFile(suffix=".keras", delete=False)
+    tmp.write(response.content)
+    tmp.close()  # Fermer pour libérer l'accès à TensorFlow
+
+    model = tf.keras.models.load_model(tmp.name)
     return model
+
 
 model = load_model_from_blob(url)
 
