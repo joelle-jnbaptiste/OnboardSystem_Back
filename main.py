@@ -10,17 +10,17 @@ import os
 
 
 PART_URLS = [
-    "sp=r&st=2025-06-27T07:15:13Z&se=2026-06-27T15:15:13Z&spr=https&sv=2024-11-04&sr=b&sig=3v9R9xVOQ2xjiW8MILUDNWiGjEmZlXeodaSjf6ZXzd0%3D",
-    "sp=r&st=2025-06-27T07:16:30Z&se=2026-06-27T15:16:30Z&spr=https&sv=2024-11-04&sr=b&sig=L0KT9xymqrSkC%2FJL03ZdrnTVb1uZy1EGUrObgxmjQSo%3D",
-    "sp=r&st=2025-06-27T07:16:48Z&se=2026-06-27T15:16:48Z&spr=https&sv=2024-11-04&sr=b&sig=Ar0wEq6meenllBVoEiUW2UZqiupmTlGP1Oly1QbUP%2BQ%3D",
-    "sp=r&st=2025-06-27T07:17:40Z&se=2026-06-27T15:17:40Z&spr=https&sv=2024-11-04&sr=b&sig=Slkb7p6foP%2FHl2qCZgWJFaXHIrZ10U0k1NEWUUGOVeU%3D",
-    "sp=r&st=2025-06-27T07:17:55Z&se=2025-06-27T15:17:55Z&spr=https&sv=2024-11-04&sr=b&sig=brisFh4qeCZDhMCxiMzbas7bv8SlvB6Q11iOgR2BaNk%3D",
-    "sp=r&st=2025-06-27T07:18:12Z&se=2026-06-27T15:18:12Z&spr=https&sv=2024-11-04&sr=b&sig=rMOT%2BjTo6lkbK3fb9mXfhslOkRZndUu418MT%2BLk%2Fqf4%3D",
-    "sp=r&st=2025-06-27T07:18:29Z&se=2026-06-27T15:18:29Z&spr=https&sv=2024-11-04&sr=b&sig=CGgZ1hT6xpQGBur6A7eDL0zNwHkMDUJESzXwzZseN1I%3D",
-    "sp=r&st=2025-06-27T07:18:46Z&se=2026-06-27T15:18:46Z&spr=https&sv=2024-11-04&sr=b&sig=%2BbqJvvTadVrzhHRDS1%2Fss6h9WNK%2ByVh48QYYuxkA78s%3D",
-    "sp=r&st=2025-06-27T07:19:07Z&se=2026-06-27T15:19:07Z&spr=https&sv=2024-11-04&sr=b&sig=N%2BZWEDKNHICU3KEU%2BNKwzf2l0oKT7wsxLwI1yFldtNs%3D",
-    "sp=r&st=2025-06-27T07:19:25Z&se=2026-06-27T15:19:25Z&spr=https&sv=2024-11-04&sr=b&sig=JB%2F%2FzEFLZQRqg7TG1IvGy2547WpxzQccL41w5OqHS00%3D",
-    "sp=r&st=2025-06-27T07:19:47Z&se=2026-06-27T15:19:47Z&spr=https&sv=2024-11-04&sr=b&sig=CWaPvNRSF06JDzuC56gme249NQUAATw86omtSufd%2BZI%3D"
+    "https://modelstorages.blob.core.windows.net/models/part_aa?sp=r&st=2025-06-27T08:54:15Z&se=2026-06-27T16:54:15Z&spr=https&sv=2024-11-04&sr=b&sig=dWLcmOxg3vrJeJFA5cbcuF1qoQOZ%2Bxhbhli0vOHHHRg%3D",
+    "https://modelstorages.blob.core.windows.net/models/part_ab?sp=r&st=2025-06-27T08:55:11Z&se=2026-06-27T16:55:11Z&spr=https&sv=2024-11-04&sr=b&sig=GlUcrwfze3Xhi7eG2xJhJ5p%2BKTjophENAVUqnVx16Hk%3D",
+    "https://modelstorages.blob.core.windows.net/models/part_ac?sp=r&st=2025-06-27T08:55:31Z&se=2026-06-27T16:55:31Z&spr=https&sv=2024-11-04&sr=b&sig=COULjlFjD%2BXZNf5zqmjMF2yLlc5t%2B9toWbBZuGjTp5c%3D",
+    "https://modelstorages.blob.core.windows.net/models/part_ad?sp=r&st=2025-06-27T08:55:57Z&se=2026-06-27T16:55:57Z&spr=https&sv=2024-11-04&sr=b&sig=qxFKlQQo2B8xrGexu%2BsJ%2Bh2pS2rmwYX24C%2FZL84rhbw%3D",
+    "https://modelstorages.blob.core.windows.net/models/part_ae?sp=r&st=2025-06-27T08:56:21Z&se=2026-06-27T16:56:21Z&spr=https&sv=2024-11-04&sr=b&sig=Q6elqQlD055oGJeLM%2FrHf2HjfHT6KqI0Ixeqo1BqX14%3D",
+    "https://modelstorages.blob.core.windows.net/models/part_af?sp=r&st=2025-06-27T08:56:40Z&se=2026-06-27T16:56:40Z&spr=https&sv=2024-11-04&sr=b&sig=IlGMjqoYt%2F7vL6vuopX5zQIsMDR3GrpylK6BGu8nSPM%3D",
+    "https://modelstorages.blob.core.windows.net/models/part_ag?sp=r&st=2025-06-27T08:57:00Z&se=2026-06-27T16:57:00Z&spr=https&sv=2024-11-04&sr=b&sig=TIObjYwwhNd315U73VciiZKwj7wisk%2ByYCwnqGw63rw%3D",
+    "https://modelstorages.blob.core.windows.net/models/part_ah?sp=r&st=2025-06-27T08:57:21Z&se=2026-06-27T16:57:21Z&spr=https&sv=2024-11-04&sr=b&sig=eCzaw5CflaiIyvMcC71KK2n4VN3VG9tW4IqmPDY6xyA%3D",
+    "https://modelstorages.blob.core.windows.net/models/part_ai?sp=r&st=2025-06-27T08:57:38Z&se=2026-06-27T16:57:38Z&spr=https&sv=2024-11-04&sr=b&sig=San3hyjZDyzcML4pDoB68jG9BoqVdGnBVgxJ4S5zzAw%3D",
+    "https://modelstorages.blob.core.windows.net/models/part_aj?sp=r&st=2025-06-27T08:58:06Z&se=2026-06-27T16:58:06Z&spr=https&sv=2024-11-04&sr=b&sig=2%2BcZeOlXPTvIxPDVdWO4se%2Fpk%2FjZDkFKtRVvpTWDh3A%3D",
+    "https://modelstorages.blob.core.windows.net/models/part_ak?sp=r&st=2025-06-27T08:58:27Z&se=2026-06-27T16:58:27Z&spr=https&sv=2024-11-04&sr=b&sig=HxLW5I%2BKmx18z4esbtIt8vF6WbtdcAiymIV51WURx9c%3D"
 ]
 
 def download_and_merge_parts(urls):
