@@ -25,7 +25,7 @@ def load_model_from_blob(url):
     return model
 
 
-model = none
+model = None
 
 IMG_HEIGHT, IMG_WIDTH = 256, 512
 MEAN = [0.485, 0.456, 0.406]
