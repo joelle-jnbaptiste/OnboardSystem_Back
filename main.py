@@ -8,6 +8,7 @@ import requests
 import tempfile
 import os
 
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
 PART_URLS = [
     "https://modelstorages.blob.core.windows.net/models/part_aa?sp=r&st=2025-06-27T08:54:15Z&se=2026-06-27T16:54:15Z&spr=https&sv=2024-11-04&sr=b&sig=dWLcmOxg3vrJeJFA5cbcuF1qoQOZ%2Bxhbhli0vOHHHRg%3D",
