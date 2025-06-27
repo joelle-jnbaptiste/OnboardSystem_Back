@@ -25,15 +25,13 @@ def load_model_from_blob(url):
     return model
 
 
-model = load_model_from_blob(url)
+model = none
 
 IMG_HEIGHT, IMG_WIDTH = 256, 512
 MEAN = [0.485, 0.456, 0.406]
 STD = [0.229, 0.224, 0.225]
 
 app = FastAPI()
-
-# model = tf.keras.models.load_model("model/saved_model_keras_larger.keras")
 
 
 def preprocess_image(file: UploadFile) -> np.ndarray:
@@ -74,6 +72,12 @@ def postprocess_prediction(pred: np.ndarray) -> bytes:
     pil_img.save(buffer, format="PNG")
     return buffer.getvalue()
 
+
+
+@app.on_event("startup")
+async def load_model():
+    global model
+    model = load_model_from_blob(url)
 
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):
