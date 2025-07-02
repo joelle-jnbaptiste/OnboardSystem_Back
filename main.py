@@ -24,15 +24,16 @@ PART_URLS = [
     "https://modelstorages.blob.core.windows.net/models/part_ak?sp=r&st=2025-06-27T08:58:27Z&se=2026-06-27T16:58:27Z&spr=https&sv=2024-11-04&sr=b&sig=HxLW5I%2BKmx18z4esbtIt8vF6WbtdcAiymIV51WURx9c%3D"
 ]
 
+
 def download_and_merge_parts(urls):
     tmp = tempfile.NamedTemporaryFile(suffix=".keras", delete=False)
-    
+
     for url in urls:
         response = requests.get(url)
         if response.status_code != 200:
             raise Exception(f"Erreur de téléchargement : {url}")
         tmp.write(response.content)
-    
+
     tmp.close()
     return tmp.name
 
@@ -85,12 +86,12 @@ def postprocess_prediction(pred: np.ndarray) -> bytes:
     return buffer.getvalue()
 
 
-
 @app.on_event("startup")
 async def load_model():
     model_path = download_and_merge_parts(PART_URLS)
     global model
     model = tf.keras.models.load_model(model_path)
+
 
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):
